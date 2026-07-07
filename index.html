@@ -3,104 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mini Publisher</title>
+    <title>Mini Publisher - Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: var(--bg-dark);
-            font-family: 'Outfit', sans-serif;
-        }
-        .login-card {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-        }
-        .login-logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            border-radius: 16px;
-        }
-        .login-title {
-            color: var(--text-main);
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .login-subtitle {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 40px;
-            line-height: 1.5;
-        }
-        .tiktok-btn {
-            background: #fe2c55;
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            width: 100%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .tiktok-btn:hover {
-            background: #e02249;
-            transform: translateY(-2px);
-        }
-        .loader {
-            display: none;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
 </head>
 <body>
-    <div class="login-card">
-        <img src="favicon.svg" alt="Mini Publisher" class="login-logo">
-        <h1 class="login-title">Welcome to Mini Publisher</h1>
-        <p class="login-subtitle">The ultimate internal tool to schedule and manage your TikTok content automatically.</p>
-        
-        <a href="dashboard.html" class="tiktok-btn" id="loginBtn">
-            <i class="fa-brands fa-tiktok"></i> Log in with TikTok
-            <div class="loader" id="loader"></div>
-        </a>
-    </div>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="favicon.svg" alt="Mini Publisher Logo" class="logo-img">
+                <span class="logo-text">Mini Publisher</span>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="#" class="nav-item active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-calendar-days"></i> Calendar</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-pen-to-square"></i> Schedule Post</a>
+                <a href="#" class="nav-item"><i class="fa-brands fa-tiktok"></i> TikTok Accounts</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            </nav>
 
-    <script>
-        document.getElementById('loginBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            const btn = this;
-            btn.innerHTML = '<div class="loader" style="display:block"></div> Authenticating...';
-            btn.style.opacity = '0.8';
-            setTimeout(() => {
-                window.location.href = 'dashboard.html';
-            }, 1500);
-        });
-    </script>
+            <div class="sidebar-footer">
+                <a href="privacy.html" class="nav-item footer-link"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                <a href="terms.html" class="nav-item footer-link"><i class="fa-solid fa-file-contract"></i> Terms of Service</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Schedule a Post</h2>
+                <div class="user-profile">
+                    <img src="profile.png" alt="Channel Mini Adventures" class="avatar-img">
+                    <span>Channel Mini Adventures</span>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Post Composer -->
+                <div class="card composer-card">
+                    <h3>New Post</h3>
+                    <form class="post-form">
+                        <div class="form-group">
+                            <label>Select Platform</label>
+                            <div class="platform-selector">
+                                <button type="button" class="platform-btn active"><i class="fa-brands fa-tiktok"></i> TikTok</button>
+                                <button type="button" class="platform-btn"><i class="fa-brands fa-youtube"></i> Shorts</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Upload Video</label>
+                            <div class="upload-area">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <p>Drag and drop your MP4 file here</p>
+                                <span>or click to browse</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Caption & Hashtags</label>
+                            <textarea placeholder="Write your caption here... #lofi #chill"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>Schedule Date</label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group half">
+                                <label>Schedule Time</label>
+                                <input type="time">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Save Draft</button>
+                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Schedule Post</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column (Preview & Stats) -->
+                <div class="right-col">
+                    <div class="card preview-card">
+                        <h3>Mobile Preview</h3>
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="tiktok-ui-placeholder">
+                                    <div class="tt-header">Following | <b>For You</b></div>
+                                    <div class="tt-side-actions">
+                                        <div class="action-btn"><i class="fa-solid fa-heart"></i></div>
+                                        <div class="action-btn"><i class="fa-solid fa-comment"></i></div>
+                                        <div class="action-btn"><i class="fa-solid fa-bookmark"></i></div>
+                                        <div class="action-btn"><i class="fa-solid fa-share"></i></div>
+                                    </div>
+                                    <div class="tt-bottom-info">
+                                        <h4>@channelminiadventures</h4>
+                                        <p>Lofi beats to relax and study to... ✨</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card stats-card">
+                        <h3>Quick Stats</h3>
+                        <div class="stat-row">
+                            <div class="stat-box">
+                                <span>Scheduled</span>
+                                <b>12</b>
+                            </div>
+                            <div class="stat-box">
+                                <span>Published</span>
+                                <b>340</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
