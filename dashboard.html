@@ -84,7 +84,7 @@
 
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary">Cancel</button>
-                            <button type="button" class="btn btn-primary" style="background: #ff0000; color: #fff;"><i class="fa-solid fa-cloud-arrow-up"></i> Upload via YouTube API</button>
+                            <button type="button" id="upload-btn" onclick="startFakeUpload()" class="btn btn-primary" style="background: #ff0000; color: #fff;"><i class="fa-solid fa-cloud-arrow-up"></i> Upload via YouTube API</button>
                         </div>
                     </form>
                 </div>
@@ -131,5 +131,19 @@
             </div>
         </main>
     </div>
+    <script>
+        function startFakeUpload() {
+            const btn = document.getElementById('upload-btn');
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Initializing API...';
+            btn.style.opacity = '0.8';
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Command sent to background worker';
+                btn.style.background = '#22c55e';
+                btn.style.opacity = '1';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
