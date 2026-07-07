@@ -3,131 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Publisher - Dashboard</title>
+    <title>Mini Adventure - Internal Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: var(--bg-dark);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .welcome-card {
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .welcome-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 20px rgba(0, 194, 199, 0.4));
+        }
+        .welcome-title {
+            color: var(--text-main);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        .welcome-subtitle {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .start-btn {
+            background: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+        }
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 194, 199, 0.5);
+            background: var(--primary-hover);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo-area">
-                <img src="favicon.svg" alt="Mini Publisher Logo" class="logo-img">
-                <span class="logo-text">Mini Publisher</span>
-            </div>
-            
-            <nav class="main-nav">
-                <a href="#" class="nav-item active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-calendar-days"></i> Calendar</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-pen-to-square"></i> Schedule Post</a>
-                <a href="#" class="nav-item"><i class="fa-brands fa-tiktok"></i> TikTok Accounts</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Analytics</a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <a href="privacy.html" class="nav-item footer-link"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
-                <a href="terms.html" class="nav-item footer-link"><i class="fa-solid fa-file-contract"></i> Terms of Service</a>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <header class="topbar">
-                <h2>Schedule a Post</h2>
-                <div class="user-profile">
-                    <img src="profile.png" alt="Channel Mini Adventures" class="avatar-img">
-                    <span>Channel Mini Adventures</span>
-                </div>
-            </header>
-
-            <div class="dashboard-grid">
-                <!-- Post Composer -->
-                <div class="card composer-card">
-                    <h3>New Post</h3>
-                    <form class="post-form">
-                        <div class="form-group">
-                            <label>Select Platform</label>
-                            <div class="platform-selector">
-                                <button type="button" class="platform-btn active"><i class="fa-brands fa-tiktok"></i> TikTok</button>
-                                <button type="button" class="platform-btn"><i class="fa-brands fa-youtube"></i> Shorts</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Upload Video</label>
-                            <div class="upload-area">
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
-                                <p>Drag and drop your MP4 file here</p>
-                                <span>or click to browse</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Caption & Hashtags</label>
-                            <textarea placeholder="Write your caption here... #lofi #chill"></textarea>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>Schedule Date</label>
-                                <input type="date">
-                            </div>
-                            <div class="form-group half">
-                                <label>Schedule Time</label>
-                                <input type="time">
-                            </div>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary">Save Draft</button>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Schedule Post</button>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Right Column (Preview & Stats) -->
-                <div class="right-col">
-                    <div class="card preview-card">
-                        <h3>Mobile Preview</h3>
-                        <div class="phone-mockup">
-                            <div class="phone-screen">
-                                <div class="tiktok-ui-placeholder">
-                                    <div class="tt-header">Following | <b>For You</b></div>
-                                    <div class="tt-side-actions">
-                                        <div class="action-btn"><i class="fa-solid fa-heart"></i></div>
-                                        <div class="action-btn"><i class="fa-solid fa-comment"></i></div>
-                                        <div class="action-btn"><i class="fa-solid fa-bookmark"></i></div>
-                                        <div class="action-btn"><i class="fa-solid fa-share"></i></div>
-                                    </div>
-                                    <div class="tt-bottom-info">
-                                        <h4>@channelminiadventures</h4>
-                                        <p>Lofi beats to relax and study to... ✨</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card stats-card">
-                        <h3>Quick Stats</h3>
-                        <div class="stat-row">
-                            <div class="stat-box">
-                                <span>Scheduled</span>
-                                <b>12</b>
-                            </div>
-                            <div class="stat-box">
-                                <span>Published</span>
-                                <b>340</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="welcome-card">
+        <img src="favicon.svg" alt="Mini Adventure Logo" class="welcome-logo">
+        <h1 class="welcome-title">Mini Adventure</h1>
+        <p class="welcome-subtitle">Welcome Collaborator</p>
+        
+        <a href="dashboard.html" class="start-btn">
+            Start <i class="fa-solid fa-arrow-right"></i>
+        </a>
     </div>
 </body>
 </html>
