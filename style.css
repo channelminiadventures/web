@@ -43,16 +43,11 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
-.logo-icon {
+.logo-img {
     width: 32px;
     height: 32px;
-    background: var(--primary);
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 16px;
+    object-fit: contain;
 }
 
 .logo-text {
@@ -124,15 +119,11 @@ body {
     font-weight: 500;
 }
 
-.avatar {
+.avatar-img {
     width: 36px;
     height: 36px;
-    background: #2a2e45;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
+    object-fit: cover;
 }
 
 .dashboard-grid {
