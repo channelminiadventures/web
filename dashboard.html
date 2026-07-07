@@ -61,24 +61,24 @@
 
                         <div class="form-group">
                             <label>Video Title</label>
-                            <input type="text" value="Deep Sleep 🌧️ Calm Lofi (Cat Island Vol. 1)" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text-main); font-family: inherit;">
+                            <input type="text" value="Late Night Coding 💻 Hacker Lofi (Coding Island Vol. 1)" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text-main); font-family: inherit;">
                         </div>
 
                         <div class="form-group">
                             <label>Video Description & SEO Tags</label>
-                            <textarea>Immerse yourself in Cat Island, where gentle rain meets absolute tranquility. This 2-hour lofi mix is procedurally generated to help you study, sleep, or relax.
+                            <textarea style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text-main); font-family: inherit; height: 100px;">Immerse yourself in Coding Island, perfect for hacking, studying, or late night sessions. This 2-hour lofi mix is procedurally generated.
 
-#lofi #relax #studymusic #catisland</textarea>
+#lofi #coding #studymusic #hacker</textarea>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group half">
                                 <label>Schedule Date (UTC)</label>
-                                <input type="date" value="2026-07-26">
+                                <input type="date" value="2026-07-07">
                             </div>
                             <div class="form-group half">
                                 <label>Schedule Time (UTC)</label>
-                                <input type="time" value="10:00">
+                                <input type="time" value="14:30">
                             </div>
                         </div>
 
@@ -100,8 +100,8 @@
                                     <div style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); padding: 2px 5px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">2:00:00</div>
                                 </div>
                                 <div style="padding: 15px;">
-                                    <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Deep Sleep 🌧️ Calm Lofi (Cat Island Vol. 1)</h4>
-                                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">0 views • Premieres Jul 26, 2026</p>
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Late Night Coding 💻 Hacker Lofi (Coding Island Vol. 1)</h4>
+                                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">0 views • Premieres Jul 7, 2026</p>
                                     <div style="display: flex; align-items: center; gap: 10px;">
                                         <img src="profile.png" alt="Channel" style="width: 35px; height: 35px; border-radius: 50%;">
                                         <div>
@@ -131,6 +131,22 @@
             </div>
         </main>
     </div>
+    <!-- Fake Terminal Modal -->
+    <div id="terminal-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background: #000; width: 80%; max-width: 800px; height: 500px; border-radius: 8px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden; font-family: monospace;">
+            <div style="background: #111; padding: 10px 15px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #888; font-size: 0.85rem;">mini_Operario - YouTube API Daemon</span>
+                <div style="display: flex; gap: 8px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+                </div>
+            </div>
+            <div id="terminal-output" style="padding: 20px; color: #0f0; overflow-y: auto; flex: 1; font-size: 0.9rem; line-height: 1.5;">
+            </div>
+        </div>
+    </div>
+
     <script>
         function startFakeUpload() {
             const btn = document.getElementById('upload-btn');
@@ -142,7 +158,63 @@
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> Command sent to background worker';
                 btn.style.background = '#22c55e';
                 btn.style.opacity = '1';
-            }, 2000);
+                
+                setTimeout(runFakeTerminal, 800);
+            }, 1500);
+        }
+
+        function runFakeTerminal() {
+            const modal = document.getElementById('terminal-modal');
+            const output = document.getElementById('terminal-output');
+            modal.style.display = 'flex';
+            
+            const logs = [
+                "root@mini-publisher:~# python run_operario.py --target youtube --force",
+                "[INFO] Booting mini_Operario Publisher Daemon...",
+                "[INFO] Loading OAuth2 credentials from client_secrets.json...",
+                "[SUCCESS] Authenticated with YouTube Data API v3 as 'Channel Mini Adventures'.",
+                "[INFO] Found pending video job: 'Late Night Coding 💻 Hacker Lofi (Coding Island Vol. 1)'",
+                "[INFO] Resolving file path: F:/04 - Audiovisual/canal roblox/mini_adventure_v2/studio/library/coding/FINAL_V2_yt_long.mp4",
+                "[INFO] File size: 1.4 GB. Initializing resumable upload session...",
+                "[INFO] Uploading chunk 1/15 (0%)...",
+                "[INFO] Uploading chunk 4/15 (26%)...",
+                "[INFO] Uploading chunk 8/15 (53%)...",
+                "[INFO] Uploading chunk 12/15 (80%)...",
+                "[INFO] Uploading chunk 15/15 (100%)...",
+                "[SUCCESS] Video payload transferred successfully.",
+                "[INFO] Setting video metadata (Title, Description, Tags)...",
+                "[INFO] Setting publication schedule to: 2026-07-07T14:30:00Z",
+                "[SUCCESS] Video officially scheduled via YouTube API!",
+                "[INFO] Video ID returned: xYz129aBc",
+                "root@mini-publisher:~# _"
+            ];
+
+            let i = 0;
+            output.innerHTML = "";
+            
+            function typeLine() {
+                if (i < logs.length) {
+                    const p = document.createElement('div');
+                    p.style.marginBottom = "5px";
+                    if (logs[i].includes("[SUCCESS]")) p.style.color = "#4ade80";
+                    else if (logs[i].includes("root@")) p.style.color = "#fff";
+                    else p.style.color = "#0f0";
+                    
+                    p.innerText = logs[i];
+                    output.appendChild(p);
+                    output.scrollTop = output.scrollHeight;
+                    i++;
+                    
+                    // Simulate different speeds for different actions
+                    let delay = 600;
+                    if (logs[i-1].includes("chunk")) delay = 400; // fast upload chunks
+                    else if (logs[i-1].includes("root@")) delay = 1500;
+                    else if (logs[i-1].includes("API v3")) delay = 1200;
+                    
+                    setTimeout(typeLine, delay + Math.random() * 300);
+                }
+            }
+            typeLine();
         }
     </script>
 </body>
