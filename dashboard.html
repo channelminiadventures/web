@@ -45,7 +45,13 @@
                         <div class="form-group">
                             <label>Select Target Platform</label>
                             <div class="platform-selector">
-                                <button type="button" class="platform-btn active" style="border-color: #ff0000; color: #ff0000; background: rgba(255,0,0,0.1);"><i class="fa-brands fa-youtube"></i> YouTube Channel</button>
+                                <button type="button" class="platform-btn active" style="border-color: #333; color: #fff; background: rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px;">
+                                    <svg viewBox="0 0 24 24" height="20" width="28" preserveAspectRatio="xMidYMid meet" focusable="false" style="display: block;">
+                                      <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z" fill="#FF0000"></path>
+                                      <path d="M10,15.464L15.5,12L10,8.536V15.464z" fill="#FFFFFF"></path>
+                                    </svg>
+                                    YouTube Channel
+                                </button>
                                 <button type="button" class="platform-btn"><i class="fa-brands fa-tiktok"></i> TikTok</button>
                             </div>
                         </div>
@@ -84,7 +90,13 @@
 
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary">Cancel</button>
-                            <button type="button" id="upload-btn" onclick="startFakeUpload()" class="btn btn-primary" style="background: #ff0000; color: #fff;"><i class="fa-solid fa-cloud-arrow-up"></i> Upload via YouTube API</button>
+                            <button type="button" id="upload-btn" onclick="startFakeUpload()" class="btn btn-primary" style="background: #ffffff; color: #000; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600;">
+                                <svg viewBox="0 0 24 24" height="20" width="28" preserveAspectRatio="xMidYMid meet" focusable="false" style="display: block;">
+                                  <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z" fill="#FF0000"></path>
+                                  <path d="M10,15.464L15.5,12L10,8.536V15.464z" fill="#FFFFFF"></path>
+                                </svg>
+                                Upload via YouTube API
+                            </button>
                         </div>
                     </form>
                 </div>
